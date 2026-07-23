@@ -179,8 +179,9 @@ img { display: block; max-width: 100%; }
   place-items: center;
   padding: 24px;
   background:
-    linear-gradient(rgba(246,252,255,.3), rgba(255,250,232,.34)),
-    url("assets/img/fondo-osito.png") center / cover no-repeat;
+    linear-gradient(90deg, rgba(255,253,246,.95) 0%, rgba(255,253,246,.78) 52%, rgba(255,255,255,.18) 100%),
+    url("assets/img/winnie-pooh-autorizado.png") calc(100% - 7vw) center / auto 88% no-repeat,
+    linear-gradient(145deg, #fffdf7, #eaf5fb 54%, #fff7d5);
   transition: opacity .8s ease, visibility .8s ease;
 }
 .intro-screen::before {
@@ -289,8 +290,9 @@ p { line-height: 1.75; }
   margin: 0;
   border-radius: 120px 24px 120px 24px;
   overflow: hidden;
+  background: linear-gradient(155deg, rgba(255,255,255,.96), rgba(255,249,218,.82));
 }
-.hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 72% center; }
+.hero-visual img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
 .date-pill {
   width: max-content;
   max-width: 100%;
@@ -496,7 +498,7 @@ footer strong { color: var(--gold-dark); font-family: "Great Vibes", cursive; fo
   .card, .notice-card { padding: 38px 20px; border-radius: 24px; }
   .hero { min-height: auto; grid-template-columns: 1fr; }
   .hero-visual { min-height: 360px; order: -1; border-radius: 80px 20px; }
-  .hero-visual img { min-height: 360px; }
+  .hero-visual img { min-height: 360px; object-fit: contain; }
   .date-pill { gap: 9px; padding: 10px 14px; font-size: .62rem; }
   .countdown-grid { gap: 7px; }
   .time-box { padding: 16px 5px; border-radius: 15px; }

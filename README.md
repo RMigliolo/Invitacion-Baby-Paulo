@@ -20,14 +20,15 @@ assets/
 │   ├── baby-paulo-2.jpg
 │   ├── baby-paulo-3.jpg
 │   ├── baby-paulo-4.jpg
+│   ├── winnie-pooh-autorizado.png
 │   └── dinamica-nino-nina.png
 └── distribucion/
+    ├── preview-invitacion.jpg
     └── preview-invitacion.png
 ```
 
-La imagen `fondo-osito.png` ya está incluida. Si deseas usar una imagen autorizada
-de Winnie Pooh como imagen principal, puedes reemplazarla conservando el mismo
-nombre o cambiar su ruta en `index.html`.
+La imagen autorizada `winnie-pooh-autorizado.png` está configurada como imagen
+principal. `fondo-osito.png` se conserva como recurso alternativo.
 
 ## 2. Publicación en GitHub Pages
 
@@ -44,9 +45,10 @@ Si cambias usuario o nombre del repositorio, actualiza en `index.html` las URL d
 ## 3. Vista previa de WhatsApp
 
 WhatsApp toma la tarjeta desde los metadatos Open Graph de `index.html`. La imagen
-incluida mide 1200 × 630 px. Después de publicar, comparte la URL completa con
-`https://`. Si WhatsApp conserva una versión anterior, cambia `?v=1` por `?v=2`
-en las rutas de la vista previa y vuelve a publicar.
+activa es `preview-invitacion.jpg`: mide 1200 × 630 px y está optimizada para
+pesar menos de 300 KB. Después de publicar, comparte la URL completa con
+`https://`. Si WhatsApp conserva una versión anterior, incrementa `?v=4` en
+las rutas de la vista previa y vuelve a publicar.
 
 ## 4. Lista de invitados confirmados
 
