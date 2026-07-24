@@ -11,7 +11,7 @@ const CONFIG = {
     Deja esta cadena vacía para usar solo WhatsApp.
     Cuando publiques Google Apps Script, pega aquí la URL que termina en /exec.
   */
-  sheetsEndpoint: "https://script.google.com/macros/s/AKfycby2E1XdE5PkFQk5PCxQHf-B0Y5MG6_YTAo6WdyyAM-JNukL07Uq9KBQFFyE55OFvf9C/exec"
+  sheetsEndpoint: "https://script.google.com/macros/s/AKfycbxAXN2_X9c0Q3qmpojs7vAOVD-PXIDFpl-6p75KJz5uoq58Ui_3X_tmWI6n6pxyOggC/exec"
 };
 
 const $ = (selector, context = document) => context.querySelector(selector);
