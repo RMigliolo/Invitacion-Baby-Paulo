@@ -244,10 +244,12 @@ function setupRsvp() {
   const form = $("#rsvpForm");
   const status = $("#rsvpStatus");
   const submitButton = $("#rsvpSubmitBtn");
+
   if (!form) return;
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
     if (!form.reportValidity()) return;
 
     const payload = {
@@ -259,32 +261,79 @@ function setupRsvp() {
       evento: "Baby Shower Baby Paulo"
     };
 
-    submitButton.disabled = true;
-    status.className = "rsvp-status";
-    status.textContent = CONFIG.sheetsEndpoint
-      ? "Guardando tu respuesta y preparando WhatsApp…"
-      : "Preparando tu confirmación…";
-
-    const saved = await saveToSheet(payload);
     const text = [
-      "Hola, confirmo mi respuesta para el Baby Shower de Baby Paulo. 💙",
+      "Hola, confirmo mi respuesta para el Baby Shower de Baby Paulo.",
       "",
       `*Nombre:* ${payload.nombre}`,
       `*Asistencia:* ${payload.asistencia}`,
       `*Número de adultos:* ${payload.adultos}`,
       `*Mi predicción:* ${payload.prediccion}`,
-      payload.mensaje ? `*Mensaje:* ${payload.mensaje}` : ""
-    ].filter(Boolean).join("\n");
+      payload.mensaje
+        ? `*Mensaje:* ${payload.mensaje}`
+        : ""
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const encodedMessage = encodeURIComponent(text);
+
+    const isMobile =
+      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    const whatsappUrl = isMobile
+      ? `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`
+      : `https://web.whatsapp.com/send?phone=${CONFIG.whatsappNumber}&text=${encodedMessage}`;
+
+    /*
+      La ventana se abre inmediatamente para evitar que el navegador
+      la bloquee mientras se guarda la respuesta en Google Sheets.
+    */
+    const whatsappWindow = window.open(
+      "about:blank",
+      "_blank"
+    );
+
+    if (whatsappWindow) {
+      whatsappWindow.opener = null;
+      whatsappWindow.document.title = "Preparando WhatsApp…";
+      whatsappWindow.document.body.innerHTML = `
+        <p style="
+          font-family: Arial, sans-serif;
+          text-align: center;
+          margin-top: 60px;
+          color: #52656f;
+        ">
+          Guardando confirmación y preparando WhatsApp…
+        </p>
+      `;
+    }
+
+    submitButton.disabled = true;
+    status.className = "rsvp-status";
+
+    status.textContent = CONFIG.sheetsEndpoint
+      ? "Guardando tu respuesta y preparando WhatsApp…"
+      : "Preparando tu confirmación…";
+
+    const saved = await saveToSheet(payload);
 
     status.textContent = saved
       ? "Respuesta registrada. Se abrirá WhatsApp para terminar la confirmación."
       : "Se abrirá WhatsApp para enviar tu confirmación.";
 
-    window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    if (whatsappWindow) {
+      whatsappWindow.location.href = whatsappUrl;
+    } else {
+      /*
+        Si el navegador bloqueó la nueva pestaña,
+        WhatsApp se abre en la pestaña actual.
+      */
+      window.location.href = whatsappUrl;
+    }
+
     submitButton.disabled = false;
   });
 }
-
 createSkyEffects();
 setupIntroAndMusic();
 setupCountdown();
