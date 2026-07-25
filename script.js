@@ -199,7 +199,7 @@ function setupGenderGame() {
         option.setAttribute("aria-pressed", String(option === button));
       });
       const result = $("#genderSelection");
-      if (result) result.textContent = `Tu predicción: ${selectedGender}.`;
+      if (result) result.textContent = `Tu elección: Baby Paulo se parecerá más ${selectedGender}.`;
     });
   });
 }
@@ -256,7 +256,7 @@ function setupRsvp() {
       nombre: $("#guestName").value.trim(),
       asistencia: $("#attendance").value,
       adultos: $("#adultCount").value || "1",
-      prediccion: selectedGender || "Sin predicción",
+      prediccion: selectedGender || "Sin elección",
       mensaje: $("#message").value.trim(),
       evento: "Baby Shower Baby Paulo"
     };
@@ -267,7 +267,7 @@ function setupRsvp() {
       `*Nombre:* ${payload.nombre}`,
       `*Asistencia:* ${payload.asistencia}`,
       `*Número de adultos:* ${payload.adultos}`,
-      `*Mi predicción:* ${payload.prediccion}`,
+      `*¿A quién se parecerá más?:* ${payload.prediccion}`,
       payload.mensaje
         ? `*Mensaje:* ${payload.mensaje}`
         : ""

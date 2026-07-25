@@ -28,7 +28,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -50,7 +50,7 @@
       <p class="eyebrow">Baby shower</p>
       <p class="script-title">Estás invitado</p>
       <span class="gold-line"></span>
-      <h1>Baby Paulo</h1>
+      <h1 class="event-name">Baby Paulo</h1>
       <p class="intro-date">26 · 09 · 2026</p>
       <img class="intro-bear" src="assets/img/fondo-osito.png" alt="" aria-hidden="true">
       <button class="btn btn-primary" id="openInvitationBtn" type="button">
@@ -72,7 +72,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Una dulce espera</p>
         <p class="script-title">Celebramos la llegada de</p>
-        <h1>Baby Paulo</h1>
+        <h1 class="event-name">Baby Paulo</h1>
         <span class="gold-line"></span>
         <p>
           Un pequeño regalo está por llegar y queremos compartir contigo
@@ -134,24 +134,70 @@
     <section class="card gender-section reveal">
       <div class="gender-copy">
         <p class="eyebrow">Dinámica</p>
-        <h2>¿Team niña o team niño?</h2>
-        <p>Elige tu predicción. La agregaremos automáticamente a tu confirmación.</p>
-        <div class="gender-options" role="group" aria-label="Predicción del bebé">
-          <button class="gender-card girl" type="button" data-gender="Niña">
-            <span class="gender-icon">🎀</span>
-            <strong>Team niña</strong>
+        <h2>¿A quién se parecerá más?</h2>
+        <p>Elige tu predicción: ¿tendrá más rasgos de Mamá o de Papá? La agregaremos automáticamente a tu confirmación.</p>
+        <div class="gender-options" role="group" aria-label="Predicción de parecido de Baby Paulo">
+          <button class="gender-card mom" type="button" data-gender="A Mamá">
+            <span class="character-portrait mom-portrait" aria-hidden="true">
+              <svg viewBox="0 0 180 180" role="img">
+                <defs>
+                  <linearGradient id="momDress" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#dceffc"/>
+                    <stop offset="1" stop-color="#88bad7"/>
+                  </linearGradient>
+                  <linearGradient id="momHair" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#fff1a8"/>
+                    <stop offset="1" stop-color="#d3a84e"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="90" cy="90" r="82" fill="#fffaf0"/>
+                <path d="M55 155c4-33 19-48 35-48s31 15 35 48" fill="url(#momDress)"/>
+                <path d="M59 76c0-31 14-50 32-50 22 0 35 19 32 51l-9 39H66z" fill="url(#momHair)"/>
+                <ellipse cx="90" cy="76" rx="26" ry="31" fill="#f8d9c4"/>
+                <path d="M66 66c6-31 44-35 51-2-15-1-28-7-37-18-3 10-7 16-14 20z" fill="url(#momHair)"/>
+                <circle cx="81" cy="77" r="2.4" fill="#45535b"/>
+                <circle cx="100" cy="77" r="2.4" fill="#45535b"/>
+                <path d="M83 89c5 5 10 5 15 0" fill="none" stroke="#b36f70" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M77 112l13 12 14-12" fill="none" stroke="#f8f4e9" stroke-width="4" stroke-linecap="round"/>
+                <path d="M72 29l6-12 12 8 12-8 7 12" fill="#e6c46c" stroke="#bd9337" stroke-width="2"/>
+                <circle cx="78" cy="17" r="3" fill="#82b9d8"/>
+                <circle cx="90" cy="24" r="3" fill="#fff"/>
+                <circle cx="102" cy="17" r="3" fill="#82b9d8"/>
+                <path d="M130 50l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#d7b659"/>
+              </svg>
+            </span>
+            <strong>Mamá</strong>
+            <small>Una princesa encantadora</small>
           </button>
-          <button class="gender-card boy" type="button" data-gender="Niño">
-            <span class="gender-icon">🧸</span>
-            <strong>Team niño</strong>
+          <button class="gender-card dad" type="button" data-gender="A Papá">
+            <span class="character-portrait dad-portrait" aria-hidden="true">
+              <svg viewBox="0 0 180 180" role="img">
+                <defs>
+                  <linearGradient id="dadShirt" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f8e7a5"/>
+                    <stop offset="1" stop-color="#d2ab53"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="90" cy="90" r="82" fill="#eef8fd"/>
+                <path d="M48 156c5-34 22-49 42-49s37 15 42 49" fill="url(#dadShirt)"/>
+                <ellipse cx="90" cy="76" rx="29" ry="32" fill="#eec8ae"/>
+                <path d="M61 69c0-29 18-43 36-41 16 2 27 14 28 34-13-7-34-12-55 0z" fill="#6f543f"/>
+                <path d="M64 83c4 24 15 35 27 35 14 0 25-12 28-35-8 10-18 15-28 15-11 0-20-5-27-15z" fill="#8a674e"/>
+                <circle cx="80" cy="76" r="2.4" fill="#45535b"/>
+                <circle cx="101" cy="76" r="2.4" fill="#45535b"/>
+                <path d="M82 88c6 5 11 5 17 0" fill="none" stroke="#8f5d55" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M65 112l25 14 26-14" fill="none" stroke="#fff8dc" stroke-width="4" stroke-linecap="round"/>
+                <path d="M41 52l10-19 11 19-11 9z" fill="#7eb0ca" stroke="#5c8da8" stroke-width="2"/>
+                <circle cx="51" cy="28" r="7" fill="#d7b659"/>
+                <path d="M137 50l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#d7b659"/>
+              </svg>
+            </span>
+            <strong>Papá</strong>
+            <small>Un aventurero de gran corazón</small>
           </button>
         </div>
         <p class="selection-note" id="genderSelection" aria-live="polite">Aún no has elegido.</p>
       </div>
-      <figure class="gender-visual">
-        <!-- Puedes cambiar esta imagen por tu diseño de la dinámica. -->
-        <img src="assets/img/dinamica-nino-nina.png" alt="Dinámica para elegir niña o niño" loading="lazy">
-      </figure>
     </section>
 
     <section class="card centered reveal">
@@ -169,7 +215,7 @@
           <p>Te esperamos puntual</p>
         </article>
       </div>
-      <a class="text-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby%20Shower%20Baby%20Paulo&dates=20260926T200000Z/20260927T000000Z&details=Acomp%C3%A1%C3%B1anos%20a%20celebrar%20a%20Baby%20Paulo&location=Jard%C3%ADn%20Briselys%2C%20Av.%20Adolfo%20L%C3%B3pez%20Mateos%2053%2C%20San%20Juan%2C%2054900%20Tultitl%C3%A1n%20de%20Mariano%20Escobedo%2C%20Estado%20de%20M%C3%A9xico" target="_blank" rel="noopener">
+      <a class="text-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby%20Shower%20Baby%20Paulo&dates=20260926T200000Z/20260927T000000Z&details=Acomp%C3%A1%C3%B1anos%20a%20celebrar%20a%20Baby%20Paulo&location=Avenida%20Adolfo%20L%C3%B3pez%20Mateos%2059B%2C%20San%20Juan%2C%2054900%20Tultitl%C3%A1n%20de%20Mariano%20Escobedo%2C%20Estado%20de%20M%C3%A9xico%2C%20M%C3%A9xico" target="_blank" rel="noopener">
         Agregar a Google Calendar
       </a>
     </section>
@@ -189,17 +235,17 @@
     <section class="card centered reveal" id="ubicacion">
       <p class="eyebrow">Ubicación</p>
       <h2>Jardín Briselys</h2>
-      <p class="address">Av. Adolfo López Mateos 53, San Juan, 54900 Tultitlán de Mariano Escobedo, Estado de México, México</p>
+      <p class="address">Avenida Adolfo López Mateos 59B, San Juan, 54900 Tultitlán de Mariano Escobedo, Estado de México, México</p>
       <div class="map-box">
         <iframe
           title="Mapa de Jardín Briselys"
-          src="https://www.google.com/maps?q=Jard%C3%ADn%20Briselys%2C%20Av.%20Adolfo%20L%C3%B3pez%20Mateos%2053%2C%20San%20Juan%2C%2054900%20Tultitl%C3%A1n%20de%20Mariano%20Escobedo%2C%20Estado%20de%20M%C3%A9xico&output=embed"
+          src="https://www.google.com/maps?q=19.643694,-99.162709&z=17&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
-      <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Jard%C3%ADn%20Briselys%2C%20Av.%20Adolfo%20L%C3%B3pez%20Mateos%2053%2C%20San%20Juan%2C%2054900%20Tultitl%C3%A1n%20de%20Mariano%20Escobedo%2C%20Estado%20de%20M%C3%A9xico" target="_blank" rel="noopener">
-        Abrir en Google Maps
+      <a class="btn btn-primary" href="https://maps.apple.com/?ll=19.643694,-99.162709&q=Jard%C3%ADn%20Briselys&address=Avenida%20Adolfo%20L%C3%B3pez%20Mateos%2059B%2C%20San%20Juan%2C%2054900%20Tultitl%C3%A1n%20de%20Mariano%20Escobedo%2C%20Edo.%20M%C3%A9x.%2C%20M%C3%A9xico" target="_blank" rel="noopener">
+        Abrir ubicación
       </a>
     </section>
 
