@@ -244,14 +244,15 @@
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
-      <div class="map-actions">
-        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=19.643694%2C-99.162709" target="_blank" rel="noopener">
-          Abrir en Google Maps
-        </a>
-        <a class="btn btn-secondary" href="https://maps.apple.com/?ll=19.643694,-99.162709&amp;q=Jard%C3%ADn%20Briselys&amp;address=Avenida%20Adolfo%20L%C3%B3pez%20Mateos%2059B%2C%20San%20Juan%2C%2054900%20Tultitl%C3%A1n%20de%20Mariano%20Escobedo%2C%20Edo.%20M%C3%A9x.%2C%20M%C3%A9xico" target="_blank" rel="noopener">
-          Abrir en Apple Maps
-        </a>
-      </div>
+      <a
+        class="btn btn-primary"
+        id="smartMapButton"
+        href="https://www.google.com/maps/search/?api=1&amp;query=19.643694%2C-99.162709"
+        target="_blank"
+        rel="noopener"
+      >
+        Abrir ubicación
+      </a>
     </section>
 
     <section class="card rsvp-section reveal" id="confirmacion">
@@ -273,10 +274,6 @@
               <option value="Sí asistiré">Sí, asistiré con mucho gusto</option>
               <option value="No podré asistir">No podré asistir</option>
             </select>
-          </label>
-          <label>
-            Número de adultos
-            <input id="adultCount" name="adultos" type="number" min="1" max="10" value="1" inputmode="numeric">
           </label>
           <label class="full-field">
             Mensaje para Baby Paulo (opcional)
