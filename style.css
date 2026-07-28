@@ -508,6 +508,19 @@ p { line-height: 1.75; }
 .map-box { height: 390px; margin: 24px 0; border-radius: 24px; overflow: hidden; border: 1px solid var(--border); }
 .map-box iframe { width: 100%; height: 100%; border: 0; }
 
+.map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.map-actions .btn {
+  min-width: 220px;
+}
+
+
 .rsvp-section { text-align: center; }
 .rsvp-status { min-height: 24px; color: var(--gold-dark); font-size: .9rem; }
 .rsvp-status.error { color: #a85252; }
@@ -599,6 +612,14 @@ footer strong { color: var(--gold-dark); font-family: "Great Vibes", cursive; fo
   .full-field { grid-column: auto; }
   .notice-card { align-items: flex-start; }
   .map-box { height: 310px; }
+  .map-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .map-actions .btn {
+    width: 100%;
+    min-width: 0;
+  }
   .carousel { height: 110vw; max-height: 560px; }
   .audio-control #audioLabel { display: none; }
 }

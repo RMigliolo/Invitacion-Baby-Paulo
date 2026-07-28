@@ -333,60 +333,10 @@ function setupRsvp() {
   });
 }
 
-function setupSmartMapLink() {
-  const mapButton = $("#smartMapButton");
-  if (!mapButton) return;
-
-  const latitude = 19.643694;
-  const longitude = -99.162709;
-  const coordinates = `${latitude},${longitude}`;
-  const userAgent = navigator.userAgent || "";
-
-  /*
-    iPadOS puede identificarse como una computadora Mac. La comprobación
-    de puntos táctiles permite diferenciar un iPad de una Mac real.
-  */
-  const isIPadOS =
-    navigator.platform === "MacIntel" &&
-    navigator.maxTouchPoints > 1;
-
-  const isIOS =
-    /iPhone|iPad|iPod/i.test(userAgent) ||
-    isIPadOS;
-
-  const isAndroid = /Android/i.test(userAgent);
-
-  const googleMapsUrl =
-    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(coordinates)}`;
-
-  const appleMapsUrl =
-    `https://maps.apple.com/?ll=${coordinates}` +
-    "&q=Jard%C3%ADn%20Briselys" +
-    "&address=Avenida%20Adolfo%20L%C3%B3pez%20Mateos%2059B%2C%20San%20Juan%2C%2054900%20Tultitl%C3%A1n%20de%20Mariano%20Escobedo%2C%20Edo.%20M%C3%A9x.%2C%20M%C3%A9xico";
-
-  if (isIOS) {
-    mapButton.href = appleMapsUrl;
-    mapButton.title = "Abrir Jardín Briselys en Apple Maps";
-    mapButton.dataset.mapEnvironment = "ios";
-  } else if (isAndroid) {
-    mapButton.href = googleMapsUrl;
-    mapButton.title = "Abrir Jardín Briselys en Google Maps";
-    mapButton.dataset.mapEnvironment = "android";
-  } else {
-    /*
-      En Windows, macOS y Linux se utiliza Google Maps en el navegador.
-    */
-    mapButton.href = googleMapsUrl;
-    mapButton.title = "Abrir Jardín Briselys en el navegador";
-    mapButton.dataset.mapEnvironment = "desktop";
-  }
-}
-
 createSkyEffects();
 setupIntroAndMusic();
 setupCountdown();
 setupCarousel();
 setupGenderGame();
 setupRevealAnimations();
-setupSmartMapLink();
 setupRsvp();
